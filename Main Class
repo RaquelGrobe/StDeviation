@@ -14,8 +14,14 @@ public class Main {
 
         // ---------*---------*---------*---------*---------*
         // Create a new object from the StDeviation Class
-        //
+       
         StDeviation calcSDev =  new StDeviation();
+        
+        System.out.println("Enter data file name");
+        Scanner s = new Scanner (System.in);
+        userFilename = s.next();
+        
+        
 // loop to read file
         //add data to array
         //end of file or data import

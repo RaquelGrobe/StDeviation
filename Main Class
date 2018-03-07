@@ -4,6 +4,10 @@ package com.company;
 // The use of static imports is something that should be used carefully.
 // I have only ever used this technique for the project wide constants.
 //
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import static com.company.ProjConstants.*;
 
 public class Main {
@@ -14,18 +18,73 @@ public class Main {
 
         // ---------*---------*---------*---------*---------*
         // Create a new object from the StDeviation Class
-       
-        StDeviation calcSDev =  new StDeviation();
-        
-        System.out.println("Enter data file name");
-        Scanner s = new Scanner (System.in);
-        userFilename = s.next();
-        
-        
-// loop to read file
-        //add data to array
-        //end of file or data import
 
+        StDeviation calcSDev =  new StDeviation();
+
+        String userFileName;
+
+        int someInt;
+        double average;
+
+
+        System.out.println("Enter data file name");
+        Scanner scanSystemIn = new Scanner(System.in);
+        userFileName = scanSystemIn.next();
+
+        System.out.println("\nThe user input: " + userFileName);
+
+        try {
+
+            // --------------------------------
+            // Give the variables their initial values
+            //
+
+
+            // --------------------------------
+            // create file, and scanner objects
+            // - file object is called tempfilenums.txt and is in your project directory
+            //   that is the same folder as the iml file
+            //
+
+            File userFile = new File(userFileName);
+            Scanner scanUserFile = new Scanner(userFile);
+
+            // ---------------------------------------------
+            // Reads in values from the file in a for loop
+            //
+
+            for (int i = 0; i < MAXDATA; i++) {
+
+                // ---------------------------------------------
+                // The scanner checks if there is another integer and prints it
+                // if there is
+                //
+
+                if (scanUserFile.hasNext()) {
+
+                    someInt = scanUserFile.nextInt();
+                    calcSDev.addNewDataItem(someInt);
+                } else {
+                    
+                    System.out.print("\n\nDataFileFILE has been completely READ\n\n");
+                    scanUserFile.close();
+
+                    // A break statement allows us to exit the loop before we have reach the end
+                    break;
+                }
+            }
+
+
+
+        }catch (FileNotFoundException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
+
+        System.out.println("Number of Observations: " + calcSDev.getNumberOfDataItems());
+        System.out.println("Average: " + calcSDev.calcAverage());
+        System.out.println("Variance: " + calcSDev.calcVariance());
+        System.out.println("Standard Deviation: " + calcSDev.calcStandardDeviation());
 
 
     }

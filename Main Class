@@ -75,13 +75,14 @@ public class Main {
         System.out.println("95 percent of the data: " + calcRange95n " < x < " calcRange95p);
         System.out.println("99 percent of the data: " + calcRange99n " < x < " calcRange99p);
 
-*/
+---------------------------------------------------------------------------------------------------
         System.out.println("==================================================================\n");
         System.out.println("                       The Average\n");
         System.out.printf("\tNumber of Items........ %20.0f\n", (double)itemCount);
         System.out.printf("\tSum of all Items:...... %20.0f\n", total);
         System.out.printf("\tAverage:............... %20.4f\n\n", average);
         System.out.println("==================================================================\n");
-
+*/
+        
     }
 }

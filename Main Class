@@ -1,9 +1,5 @@
 package com.company;
 
-// ---------*---------*---------*---------*---------*
-// The use of static imports is something that should be used carefully.
-// I have only ever used this technique for the project wide constants.
-//
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -35,23 +31,12 @@ public class Main {
 
         try {
 
-            // --------------------------------
-            // Give the variables their initial values
-            //
-
-
-            // --------------------------------
-            // create file, and scanner objects
-            // - file object is called tempfilenums.txt and is in your project directory
-            //   that is the same folder as the iml file
-            //
 
             File userFile = new File(userFileName);
             Scanner scanUserFile = new Scanner(userFile);
 
             // ---------------------------------------------
             // Reads in values from the file in a for loop
-            //
 
             for (int i = 0; i < MAXDATA; i++) {
 
@@ -65,11 +50,11 @@ public class Main {
                     someInt = scanUserFile.nextInt();
                     calcSDev.addNewDataItem(someInt);
                 } else {
-                    
+
                     System.out.print("\n\nDataFileFILE has been completely READ\n\n");
                     scanUserFile.close();
 
-                    // A break statement allows us to exit the loop before we have reach the end
+                    // A break statement allows us to exit the loop before we have reached the end
                     break;
                 }
             }
@@ -80,12 +65,23 @@ public class Main {
             System.out.println(e);
             e.printStackTrace();
         }
-
+/*
         System.out.println("Number of Observations: " + calcSDev.getNumberOfDataItems());
         System.out.println("Average: " + calcSDev.calcAverage());
         System.out.println("Variance: " + calcSDev.calcVariance());
         System.out.println("Standard Deviation: " + calcSDev.calcStandardDeviation());
 
+        System.out.println("68 percent of the data: " + calcRange68n " < x < " calcRange68p);
+        System.out.println("95 percent of the data: " + calcRange95n " < x < " calcRange95p);
+        System.out.println("99 percent of the data: " + calcRange99n " < x < " calcRange99p);
+
+*/
+        System.out.println("==================================================================\n");
+        System.out.println("                       The Average\n");
+        System.out.printf("\tNumber of Items........ %20.0f\n", (double)itemCount);
+        System.out.printf("\tSum of all Items:...... %20.0f\n", total);
+        System.out.printf("\tAverage:............... %20.4f\n\n", average);
+        System.out.println("==================================================================\n");
 
     }
 }

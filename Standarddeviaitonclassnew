@@ -1,0 +1,117 @@
+package com.company;
+
+/**
+ * Created by 21328GRO on 23/02/2018.
+ */
+
+import static com.company.ProjConstants.*;
+
+
+public class StDeviation {
+
+
+    private int[] Data = new int[MAXDATA];
+
+    private int itemCount = 0;
+    private double average = INVALID;
+    private double variance = INVALID;
+    private double StandardDeviation = INVALID;
+    private double sdrange68n = 0;
+    private double sdrange68p = 0;
+    private double sdrange95n = 0;
+    private double sdrange95p = 0;
+    private double sdrange99n = 0;
+    private double sdrange99p = 0;
+
+
+
+    public void addNewDataItem(int dataItem){
+
+        Data [itemCount] = dataItem;
+        itemCount++;
+    }
+
+
+
+    public int getNumberOfDataItems(){
+
+        return itemCount;
+    }
+
+
+    public double calcAverage(){
+
+        int total = 0;
+
+        for (int i = 0; i < itemCount; i++){
+
+            total += Data[i];
+
+        }
+
+        average = total / itemCount;
+        //Average = sum of data points / number of data points
+
+        return average;
+    }
+
+
+    public double calcVariance(){
+
+        double difference = 0;
+        double Squared = 0;
+        double Total = 0;
+
+        for (int i = 0; i < itemCount; i++){
+
+            difference = Data[i] - average;
+            Squared = Math.pow(difference, 2);
+            Total += Squared;
+        }
+
+        variance = Total / itemCount;
+
+        return variance;
+    }
+
+
+
+    public double calcStandardDeviation(){
+        StandardDeviation = Math.sqrt(variance);
+        return StandardDeviation;
+
+
+    }
+// Methods for calculating ranges
+    public double calcRange68n () {
+        sdrange68n = average - StandardDeviation;
+        return sdrange68n;
+    }
+
+     public double calcRange68p (){
+        sdrange68p = average + StandardDeviation;
+        return sdrange68p;
+    }
+
+    public double calcRange95n () {
+        sdrange95n = average - (2 * StandardDeviation);
+        return sdrange95n;
+    }
+
+    public double sdRange95p () {
+        sdrange95p = average + (2 * StandardDeviation);
+        return sdrange95p;
+    }
+
+    public double calcRange99n () {
+        sdrange99n = average - (3 * StandardDeviation);
+        return sdrange99n;
+    }
+
+    public double calcRange99p () {
+        sdrange99p = average + (3 * StandardDeviation);
+        return sdrange99p;
+    }
+
+}
+

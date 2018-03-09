@@ -73,6 +73,7 @@ public class StDeviation {
     public double calcStandardDeviation(){
         StandardDeviation = Math.sqrt(variance);
         return StandardDeviation;
-    }
 
+
+    }
 }

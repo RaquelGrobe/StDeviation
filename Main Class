@@ -20,7 +20,9 @@ public class Main {
         String userFileName;
 
         int someInt;
-        double average;
+        double tempAverage;
+        double tempVariance;
+        double tempSDeviation;
 
 
         System.out.println("Enter data file name");
@@ -58,31 +60,42 @@ public class Main {
                     break;
                 }
             }
-
-
+            
 
         }catch (FileNotFoundException e) {
             System.out.println(e);
             e.printStackTrace();
         }
-/*
+
+        tempAverage = calcSDev.calcAverage();
+        tempVariance = calcSDev.calcVariance();
+        tempSDeviation = calcSDev.calcStandardDeviation();
+
         System.out.println("Number of Observations: " + calcSDev.getNumberOfDataItems());
-        System.out.println("Average: " + calcSDev.calcAverage());
-        System.out.println("Variance: " + calcSDev.calcVariance());
-        System.out.println("Standard Deviation: " + calcSDev.calcStandardDeviation());
+        System.out.println("Average: " + tempAverage);
+        System.out.println("Variance: " + tempVariance);
+        System.out.println("Standard Deviation: " + tempSDeviation);
 
-        System.out.println("68 percent of the data: " + calcRange68n " < x < " calcRange68p);
-        System.out.println("95 percent of the data: " + calcRange95n " < x < " calcRange95p);
-        System.out.println("99 percent of the data: " + calcRange99n " < x < " calcRange99p);
 
----------------------------------------------------------------------------------------------------
-        System.out.println("==================================================================\n");
-        System.out.println("                       The Average\n");
-        System.out.printf("\tNumber of Items........ %20.0f\n", (double)itemCount);
-        System.out.printf("\tSum of all Items:...... %20.0f\n", total);
-        System.out.printf("\tAverage:............... %20.4f\n\n", average);
-        System.out.println("==================================================================\n");
-*/
-        
+        System.out.printf("\n\tItems:.......................... %10.0f\n", (double) calcSDev.getNumberOfDataItems());
+        System.out.printf("\tAverage:.......................... %10.4f\n\n", calcSDev.calcAverage());
+        System.out.printf("\tVariance:......................... %10.4f\n\n", calcSDev.calcVariance());
+        System.out.printf("\tStandard Deviation:............... %10.4f\n\n", calcSDev.calcStandardDeviation());
+
+        System.out.printf("\tItems, Average, Variance:............... %10.4f < %10.4f < %10.4f\n\n",
+                (double) calcSDev.getNumberOfDataItems(),
+                calcSDev.calcAverage(),
+                calcSDev.calcVariance());
+
+        System.out.printf("\t Range for 68%% of data :............... %10.4f < %10.4f < %10.4f\n\n",
+                tempAverage - tempSDeviation, tempAverage, tempAverage + tempSDeviation);
+
+        System.out.printf("\t Range for 95%% of data :............... %10.4f < %10.4f < %10.4f\n\n",
+                tempAverage - 2*tempSDeviation, tempAverage, tempAverage + 2*tempSDeviation);
+
+        System.out.printf("\t Range for 99%% of data :............... %10.4f < %10.4f < %10.4f\n\n",
+                tempAverage - 3*tempSDeviation, tempAverage, tempAverage + 3*tempSDeviation);
+
+
     }
 }

@@ -4,9 +4,11 @@ package com.company;
  * Created by 21328GRO on 23/02/2018.
  */
 
+//import information from ProjConstants class
+
 import static com.company.ProjConstants.*;
 
-
+//create public Standard Deviation Class. This is where all calculations for average, variance, and standard deviation will take place.
 public class StDeviation {
 
 
@@ -18,7 +20,11 @@ public class StDeviation {
     private double StandardDeviation = INVALID;
 
 
-
+/*
+get the number of data items from the file that the program will be reading from.
+every time the program reads a new data Item from the file, the itemCount will go up by one, 
+resulting in the total number of data items in the file once the file has been completely read.
+*/
     public void addNewDataItem(int dataItem){
 
         Data [itemCount] = dataItem;
@@ -26,7 +32,7 @@ public class StDeviation {
     }
 
 
-
+//return the number of data items
     public int getNumberOfDataItems(){
 
         return itemCount;

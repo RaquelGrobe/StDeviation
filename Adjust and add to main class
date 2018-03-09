@@ -1,0 +1,23 @@
+numDataItems = calcSDev.getNumberOfDataItems();
+        System.out.println("============================================================================");
+        System.out.println("                                Analysis\n");
+        System.out.printf("%-30.30s  %-30.60s%n", "Number of Observations", numDataItems);
+
+        sdAverage = calcSDev.calcAverage();
+        System.out.printf("%-30.30s  %-30.60s%n", "Mean", sdAverage);
+
+        sdVariance = calcSDev.calcVariance();
+        System.out.printf("%-30.30s  %-30.60s%n", "Variance", sdVariance);
+
+        standardDeviation = calcSDev.calcStandardDeviation();
+        System.out.printf("%-30.30s  %-30.60s%n", "Standard Deviation", standardDeviation);
+
+        interval68 = calcSDev.calcInterval68();
+        System.out.printf("%-30.30s  %-30.60s%n", "68.27% of the Observations", interval68);
+
+        interval95 = calcSDev.calcInterval95();
+        System.out.printf("%-30.30s  %-30.60s%n", "95.45% of the Observations", interval95);
+
+        interval99 = calcSDev.calcInterval99();
+        System.out.printf("%-30.30s  %-30.60s%n", "99.74% of the Observations", interval99);
+        System.out.print("==============================================================

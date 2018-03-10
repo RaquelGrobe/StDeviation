@@ -89,12 +89,11 @@ is equal to the Total divided by the number of items read from the file.*/
     }
     
 //-----------------------------------------------------------------------------------------------------------------
-
+//Finally, calculate the standard deviation, which is the square root of the variance
 
     public double calcStandardDeviation(){
         StandardDeviation = Math.sqrt(variance);
         return StandardDeviation;
-
 
     }
 }

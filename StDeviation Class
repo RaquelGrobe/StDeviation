@@ -8,7 +8,11 @@ package com.company;
 
 import static com.company.ProjConstants.*;
 
-//create public Standard Deviation Class. This is where all calculations for average, variance, and standard deviation will take place.
+//create public Standard Deviation Class. This is where all calculations for average, variance, and standard deviation will take
+//place. Note: Private methods/integers are only available to this class, but public methods/integers are what will be used in
+//what is printed from the main class.
+//double = return a decimal value
+
 public class StDeviation {
 
 
@@ -21,8 +25,9 @@ public class StDeviation {
 
 
 /*
+---------------------------------------------------------------------------------------------------------
 get the number of data items from the file that the program will be reading from.
-every time the program reads a new data Item from the file, the itemCount will go up by one, 
+Every time the program reads a new data Item from the file, the itemCount will go up by one, 
 resulting in the total number of data items in the file once the file has been completely read.
 */
     public void addNewDataItem(int dataItem){
@@ -37,7 +42,8 @@ resulting in the total number of data items in the file once the file has been c
 
         return itemCount;
     }
-
+//---------------------------------------------------------------------------------------------------------------
+//calculate the average of the data points from the file: average = sum of the data items / number of data items
 
     public double calcAverage(){
 
@@ -55,15 +61,23 @@ resulting in the total number of data items in the file once the file has been c
         return average;
     }
 
+//-----------------------------------------------------------------------------------------------------------------
+//calculate the variance: average squared deviation of each number from the mean of a data set
 
     public double calcVariance(){
 
         double difference = 0;
         double Squared = 0;
         double Total = 0;
-
-        for (int i = 0; i < itemCount; i++){
-
+        
+/* integer i starts equal to zero, and as long as i is less than the itemCount (or the number of items from the file that
+the program has read) the loop will continue, and the value of i will increase by 1 for each time the loop is executed.
+The difference (decimal value starting at zero) is equal to the value of the data item from the file minus the average. The next
+step in calculating variance is calculating the squared value of the differences: Math.pow(difference, 2) does this (it means
+the difference to the power of 2). Total += Squared means the Total is equal to the Total plus Squared. Finally, the variance
+is equal to the Total divided by the number of items read from the file.*/
+        
+        for (int i = 0; i < itemCount; i++);
             difference = Data[i] - average;
             Squared = Math.pow(difference, 2);
             Total += Squared;
@@ -73,7 +87,8 @@ resulting in the total number of data items in the file once the file has been c
 
         return variance;
     }
-
+    
+//-----------------------------------------------------------------------------------------------------------------
 
 
     public double calcStandardDeviation(){

@@ -5,10 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import static com.company.ProjConstants.*;
+//import exit routes (if the file that the program is trying to read doesn't exist), the scanner, and the ProjConstants class
+//---------------------------------------------------------------------------------------------------------------------------
 
 public class Main {
-
-
 
     public static void main(String[] args) {
 

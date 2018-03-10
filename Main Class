@@ -28,6 +28,9 @@ public class Main {
         System.out.println("Enter data file name");
         Scanner scanSystemIn = new Scanner(System.in);
         userFileName = scanSystemIn.next();
+        
+        //scanner: when the program runs, it will first display "Enter data file name" and the person using the program will
+        //input that information, which the program will then read from
 
         System.out.println("\nThe user input: " + userFileName);
 
@@ -45,7 +48,6 @@ public class Main {
                 // ---------------------------------------------
                 // The scanner checks if there is another integer and prints it
                 // if there is
-                //
 
                 if (scanUserFile.hasNext()) {
 
@@ -67,15 +69,26 @@ public class Main {
             e.printStackTrace();
         }
 
+/*
+--------------------------------------------------------------------------------------------------------------------------
+change methods from the standard deviation class into variables so that each time the program wants to use those values in 
+this class, it doesn't have to run the mehtods every single time. Essentailly, this just makes it more efficient and faster
+because the program has to do less work
+*/
         tempAverage = calcSDev.calcAverage();
         tempVariance = calcSDev.calcVariance();
         tempSDeviation = calcSDev.calcStandardDeviation();
+
+//------------------------------------------------------------------------------------------------------------------------
+//print the number of observations, the average, the variance, and the standard deviation
 
         System.out.println("Number of Observations: " + calcSDev.getNumberOfDataItems());
         System.out.println("Average: " + tempAverage);
         System.out.println("Variance: " + tempVariance);
         System.out.println("Standard Deviation: " + tempSDeviation);
 
+//-----------------------------------------------------------------------------------------------------------------------
+//print the average, variance, and standard deviation again, but to only 4 decimal places
 
         System.out.printf("\n\tItems:.......................... %10.0f\n", (double) calcSDev.getNumberOfDataItems());
         System.out.printf("\tAverage:.......................... %10.4f\n\n", calcSDev.calcAverage());
@@ -86,6 +99,8 @@ public class Main {
                 (double) calcSDev.getNumberOfDataItems(),
                 calcSDev.calcAverage(),
                 calcSDev.calcVariance());
+
+//print the ranges: 68% of the data, 95% of the data, 99% of the data; all to 4 decimal places
 
         System.out.printf("\t Range for 68%% of data :............... %10.4f < %10.4f < %10.4f\n\n",
                 tempAverage - tempSDeviation, tempAverage, tempAverage + tempSDeviation);
